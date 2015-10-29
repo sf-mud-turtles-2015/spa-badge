@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <script src="lib/jquery.min.js"></script>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="http://underscorejs.org/underscore.js"></script>
+  <script src="js/lib/backbone-min.js"></script>
+  <script src="js/lib/backbone-localstorage-min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/models/model.js"></script>
+  <script src="js/collections/collection.js"></script>
+  <script src="js/views/individual.js"></script>
+  <script src="js/views/individuals.js"></script>
   <!-- ADD BACKBONE FILES HERE -->
   <title>SPABadge</title>
 </head>
@@ -26,3 +33,39 @@
   </div>
 </body>
 </html>
+
+<script id="badgeTemplate" type="text/template">
+  <div class="slogan">
+          <div class="tag"><%= tag %></div>
+          <div class="vote-on">
+            <form action="#">
+              <input type="hidden" name="slogan_id" value=1>
+              <input type="hidden" name="vote_type" value="up">
+              <button class="up" type="submit" name="submit">
+                <img src="img/upvote.gif" alt="upvote_image" />
+              </button>
+            </form>
+          </div>
+          <div class="vote-on">
+            <form action="#">
+              <input type="hidden" name="slogan_id" value=1>
+              <input type="hidden" name="vote_type" value="down">
+              <button class="down" type="submit" name="submit">
+                  <img src="img/downvote.gif" alt="downvote_image" />
+              </button>
+              <div class="points">
+                        (<%= votes %> points)
+              </div>
+            </form>
+          </div>
+  </div>
+</script>
+
+<div id="add-badge">
+  <h3> Add a Badge: </h3>
+  <form action="#">
+    <input type="hidden" name="user_id" value="5" />
+    <input type="text" name="tag" />
+    <input type="image" src="img/add_button.png" alt="Add Slogan" />
+  </form>
+</div>
